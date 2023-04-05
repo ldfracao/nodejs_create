@@ -1,0 +1,50 @@
+<header class="container-fluid bg-primary">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <a href="#" class="navbar-brand text-uppercase">sistema web</a>
+    <div class="navbar-nav">
+      <a href="/" class="nav-item nav-link active">Cadastrar</a>
+      <a href="search" class="nav-item nav-link">Consultar</a>
+    </div>
+  </nav>
+</header>
+<main class="container-fluid">
+  <p class="fw-bold fs-5">Cadastrar - Agendamento de Potenciais Clientes</p>
+  <p>Sistema utilizado para agendamento de serviços</p>
+  <div class="col text-light">
+    Nome
+  </div>
+  <div class="col text-light">
+    Telefone
+  </div>
+  <div class="col text-light">
+    Origem
+  </div>
+  <div class="col text-light">
+    Data do contato
+  </div>
+  <div class="col text-light">
+    Observação
+  </div>
+  {{#each post}}
+  {{#dataValues}}
+  <div class="row">
+    <div class=col>
+      {{nome}}
+    </div>
+    <div class=col>
+      {{telefone}}
+    </div>
+    <div class=col>
+      {{origem}}
+    </div>
+    <div class=col>
+      {{data}}
+    </div>
+    <div class=col>
+      {{obs}}
+    </div>
+
+  </div>
+  {{/dataValues}}
+  {{/each}}
+</main>

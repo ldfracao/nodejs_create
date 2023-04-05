@@ -19,6 +19,14 @@ app.get("/", (req, res) => {
   res.render("index")
 });
 
+app.get("/search", function(req, res){
+  post.findAll().then(function(post){
+    res.render("search", {post})
+  }).catch(function(err){
+    console.log(err)
+  })
+})
+
 // form post request
 app.post("/cadastrar", async (req, res) => {
 
@@ -31,7 +39,7 @@ post.create({
     obs: req.body.obs
   });
 
-  res.render("index")
+  res.redirect("/")
 });
 
 app.listen(8080);
