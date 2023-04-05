@@ -2,7 +2,8 @@
 const express = require('express');
 const handlebars = require("express-handlebars").engine;
 const post = require('./models/post')
-// const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
+
 // create an instance of the express module
 const app = express();
 
@@ -10,8 +11,8 @@ app.engine("handlebars", handlebars({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 // initialize express to parse form data to JSON
-app.use(express.urlencoded({extended : false}));
-app.use(express.json());
+app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.json());
 
 // sends handlebars file as response
 app.get("/", (req, res) => {
@@ -21,7 +22,7 @@ app.get("/", (req, res) => {
 // form post request
 app.post("/cadastrar", async (req, res) => {
 
-  // insert data into Agendamentos table
+// insert data into Agendamentos table and render index again as a response
 post.create({
     nome: req.body.name,
     telefone: req.body.tel,
